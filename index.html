@@ -16,7 +16,9 @@
     <div class="container">
 
         <div class="playerPokémon">
-            <div class="playerScore">Player Score: 0</div>
+            <div class="playerScore">Player Score: 
+                <span id="playerScore">0</span>
+            </div>
             <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png" alt="Charmander" class="fire"/>
 
             <!-- 
@@ -47,7 +49,9 @@
         </div>
 
         <div class="botPokémon">
-            <div class="botScore">Bot Score: 0</div>
+            <div class="botScore">Bot Score: 
+                <span id="botScore">0</span>
+            </div>
             <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png" alt="Charmander" class="fire"/>
 
             <!-- 
@@ -74,8 +78,10 @@
         </div>
     </div>
 
-    <button class="evolve">Evolve Pokémon</button>
-    <button class="devolve">Devolve Pokémon</button>
+    <div class="resultText">Bot is challenging you!</div>
+
+    <button id="evolve" class="evolve">Evolve Pokémon</button>
+    <button id="devolve" class="devolve">Devolve Pokémon</button>
 
 </body>
 
