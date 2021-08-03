@@ -1,0 +1,51 @@
+@import url('http://fonts.cdnfonts.com/css/pokemon-solid');
+
+html, body {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 10px;
+    font-smooth: never;
+    -webkit-font-smoothing: none;
+    font-family: "pokemon-font", monospace;
+    font-size: 40px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    border-radius: 70px;
+    height: 200px;
+    aspect-ratio: auto 530 / 599;
+    transition: transform .4s;
+}
+
+img:hover {
+    transform: scale(1.2);
+}
+
+img:active {
+    transform: translate(0%, 10%);
+}
+
+.playerPokémon, .botPokémon {
+    border: 5px solid #4568a8;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.botPokémon {
+    border-color: #a8454a;
+}
+
+.playerScore {
+    color: #4568a8
+}
+
+.botScore {
+    color: #a8454a;
+}
