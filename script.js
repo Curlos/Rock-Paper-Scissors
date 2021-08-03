@@ -49,15 +49,15 @@ const handleElemTypes = (playerElemType, botElemType) => {
     if(playerScoreNum >= 5) {
         alert('You win! You got ₽10000000 for winning.')
     } else if (botScoreNum >= 5) {
-        alert('Bot wins...Bot got ₽10000000 for winning.')
+        alert('BOT wins...BOT got ₽10000000 for winning.')
     } else if (botElemType == typeEffectiveness[playerElemType]) {
         playerScoreElem.textContent = String(playerScoreNum + 1)
-        resultTextElem.textContent = `Player used ${playerElemType} on Bot's ${botElemType}. It was super effective!`
+        resultTextElem.textContent = `PLAYER used ${playerElemType} on Bot's ${botElemType}. It was super effective!`
     } else if (playerElemType == typeEffectiveness[botElemType]) {
         botScoreElem.textContent = String(botScoreNum + 1)
-        resultTextElem.textContent = `Player used ${playerElemType} on Bot's ${botElemType}. It was not very effective...`
+        resultTextElem.textContent = `PLAYER used ${playerElemType} on Bot's ${botElemType}. It was not very effective...`
     } else {
-        resultTextElem.textContent = `Player used ${playerElemType} on Bot's ${botElemType}. It was not very effective...`
+        resultTextElem.textContent = `PLAYER used ${playerElemType} on Bot's ${botElemType}. It was not very effective...`
     }
 }
 
