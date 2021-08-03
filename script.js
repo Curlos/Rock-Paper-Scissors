@@ -54,13 +54,13 @@ const handleElemTypes = (playerElemType, botElemType) => {
         playerScoreNum += 1
         playerScoreElem.textContent = String(playerScoreNum)
         resultTextElem.textContent = `PLAYER used ${playerElemType} on BOT'S ${botElemType}. It was super effective!`
-        setTimeout(checkIfGameOver(playerScoreNum), 5000)
+        checkIfGameOver(playerScoreNum, botScoreNum)
         
     } else if (playerElemType == typeEffectiveness[botElemType]) {
         botScoreNum += 1
         botScoreElem.textContent = String(botScoreNum)
         resultTextElem.textContent = `PLAYER used ${playerElemType} on BOT'S ${botElemType}. It was not very effective...`
-        setTimeout(checkIfGameOver(botScoreNum), 5000)
+        checkIfGameOver(playerScoreNum, botScoreNum)
     } else {
         resultTextElem.textContent = `PLAYER used ${playerElemType} on BOT'S ${botElemType}. It was not very effective...`
     }
@@ -101,7 +101,7 @@ const changeEvolution = ((event) => {
     }
 })
 
-const checkIfGameOver = (playerScoreNum) => {
+const checkIfGameOver = (playerScoreNum, botScoreNum) => {
     if(playerScoreNum >= 5) {
         alert('You win! You got ₽10000000 for winning.')
         endGame()
