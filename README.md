@@ -61,7 +61,7 @@ Play rock paper scissors but using pokémon starter types.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/Curlos/Random-Dice-Roller.git
+   git clone https://github.com/Curlos/Rock-Paper-Scissors
    ```
 2. Right click index.html and open with your browser (Google Chrome, Firefox, etc.)
 
@@ -70,7 +70,8 @@ Play rock paper scissors but using pokémon starter types.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-![Screen Shot 2021-08-03 at 9 02 29 AM](https://user-images.githubusercontent.com/41396365/128020092-d9193da6-fb59-4c24-873c-0098a9b7246b.png)
+<img src="images/no-evolve.png" alt="No Evolve" width="524px" height="400px">
+<img src="images/fully-evolved.png" alt="No Evolve" width="524px" height="400px">
 
 <!-- LICENSE -->
 ## License
