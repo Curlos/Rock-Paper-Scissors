@@ -26,38 +26,43 @@ const grassPokémonPlayer = document.querySelector('.playerPokémon .grass')
 const resultTextElem = document.querySelector('.resultText')
 const evolveButton = document.getElementById('evolve')
 const devolveButton = document.getElementById('devolve')
+const playAgainButton = document.getElementById('playAgain')
 let evolveTimes = 0
+let gameOver = false
 
 const playRound = ((event) => {
-    let playerPokémon = event.target
-    let playerPokémonElemType = playerPokémon.classList[0]
-    console.log(`player: ${playerPokémonElemType}`)
+    if (!gameOver) {
+        let playerPokémon = event.target
+        let playerPokémonElemType = playerPokémon.classList[0]
+        console.log(`player: ${playerPokémonElemType}`)
 
 
-    let randomElemIndex = getRandomElemType(0, elemTypes.length)
-    let randomElem = elemTypes[randomElemIndex]
-    let botPokémon = document.querySelector(`.botPokémon .${randomElem}`)
-    let botPokémonElemType = botPokémon.classList[0]
-    console.log(`bot: ${botPokémonElemType}`)
-    handleElemTypes(playerPokémonElemType, botPokémonElemType)
+        let randomElemIndex = getRandomElemType(0, elemTypes.length)
+        let randomElem = elemTypes[randomElemIndex]
+        let botPokémon = document.querySelector(`.botPokémon .${randomElem}`)
+        let botPokémonElemType = botPokémon.classList[0]
+        console.log(`bot: ${botPokémonElemType}`)
+        handleElemTypes(playerPokémonElemType, botPokémonElemType)
+    }
 })
 
 const handleElemTypes = (playerElemType, botElemType) => {
     let playerScoreNum = Number(playerScoreElem.textContent)
     let botScoreNum = Number(botScoreElem.textContent)
 
-    if(playerScoreNum >= 5) {
-        alert('You win! You got ₽10000000 for winning.')
-    } else if (botScoreNum >= 5) {
-        alert('BOT wins...BOT got ₽10000000 for winning.')
-    } else if (botElemType == typeEffectiveness[playerElemType]) {
-        playerScoreElem.textContent = String(playerScoreNum + 1)
-        resultTextElem.textContent = `PLAYER used ${playerElemType} on Bot's ${botElemType}. It was super effective!`
+    if (botElemType == typeEffectiveness[playerElemType]) {
+        playerScoreNum += 1
+        playerScoreElem.textContent = String(playerScoreNum)
+        resultTextElem.textContent = `PLAYER used ${playerElemType} on BOT'S ${botElemType}. It was super effective!`
+        setTimeout(checkIfGameOver(playerScoreNum), 5000)
+        
     } else if (playerElemType == typeEffectiveness[botElemType]) {
-        botScoreElem.textContent = String(botScoreNum + 1)
-        resultTextElem.textContent = `PLAYER used ${playerElemType} on Bot's ${botElemType}. It was not very effective...`
+        botScoreNum += 1
+        botScoreElem.textContent = String(botScoreNum)
+        resultTextElem.textContent = `PLAYER used ${playerElemType} on BOT'S ${botElemType}. It was not very effective...`
+        setTimeout(checkIfGameOver(botScoreNum), 5000)
     } else {
-        resultTextElem.textContent = `PLAYER used ${playerElemType} on Bot's ${botElemType}. It was not very effective...`
+        resultTextElem.textContent = `PLAYER used ${playerElemType} on BOT'S ${botElemType}. It was not very effective...`
     }
 }
 
@@ -96,6 +101,25 @@ const changeEvolution = ((event) => {
     }
 })
 
+const checkIfGameOver = (playerScoreNum) => {
+    if(playerScoreNum >= 5) {
+        alert('You win! You got ₽10000000 for winning.')
+        endGame()
+    } else if (botScoreNum >= 5) {
+        alert('BOT wins...BOT got ₽10000000 for winning.')
+        endGame()
+    }
+}
+
+const endGame = () => {
+    gameOver = true
+    playAgainButton.removeAttribute('hidden')
+}
+
+const resetGame = () => {
+    location.reload()
+}
+
 const getKeyByValue = (object, value) => {
     return Object.keys(object).find(key => object[key] === value);
 }
@@ -105,3 +129,4 @@ waterPokémonPlayer.addEventListener('click', playRound)
 grassPokémonPlayer.addEventListener('click', playRound)
 evolveButton.addEventListener('click', changeEvolution)
 devolveButton.addEventListener('click', changeEvolution)
+playAgainButton.addEventListener('click', resetGame)
