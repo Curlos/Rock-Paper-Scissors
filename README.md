@@ -14,9 +14,9 @@
   <p align="center">
     <a href="https://fire-water-grass.vercel.app/">View Demo</a>
     ·
-    <a href="https://github.com/Curlos/Rock-Paper-Scissors">Report Bug</a>
+    <a href="https://github.com/Curlos/Rock-Paper-Scissors/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Curlos/Rock-Paper-Scissors">Request Feature</a>
+    <a href="https://github.com/Curlos/Rock-Paper-Scissors/issues">Request Feature</a>
   </p>
 </p>
 
