@@ -27,24 +27,46 @@ const resultTextElem = document.querySelector('.resultText')
 const evolveButton = document.getElementById('evolve')
 const devolveButton = document.getElementById('devolve')
 const playAgainButton = document.getElementById('playAgain')
+const allPokémon = document.querySelectorAll('.pokemon')
 let evolveTimes = 0
 let gameOver = false
 
 const playRound = ((event) => {
     if (!gameOver) {
         let playerPokémon = event.target
-        let playerPokémonElemType = playerPokémon.classList[0]
+        let playerPokémonElemType = playerPokémon.classList[1]
         console.log(`player: ${playerPokémonElemType}`)
 
 
         let randomElemIndex = getRandomElemType(0, elemTypes.length)
         let randomElem = elemTypes[randomElemIndex]
         let botPokémon = document.querySelector(`.botPokémon .${randomElem}`)
-        let botPokémonElemType = botPokémon.classList[0]
-        console.log(`bot: ${botPokémonElemType}`)
+        let botPokémonElemType = botPokémon.classList[1]
+
         handleElemTypes(playerPokémonElemType, botPokémonElemType)
+        fadeUnchosenPokémon('playerPokémon',playerPokémonElemType)
+        fadeUnchosenPokémon('botPokémon',botPokémonElemType)
     }
 })
+
+const fadeUnchosenPokémon = (trainerPokémon, chosenType) => {
+    let pokémon = document.querySelectorAll(`.${trainerPokémon} .pokémon`)
+    console.log(pokémon)
+    console.log('CHOSEN TYPE: ', chosenType)
+
+    for (let elem of pokémon) {
+        const classList = Object.values(elem.classList)
+
+        if (!classList.includes(chosenType)) {
+            console.log(chosenType)
+            elem.classList.remove('noFade')
+            elem.classList.add('fade')
+        } else if (classList.includes(chosenType)) {
+            elem.classList.remove('fade')
+            elem.classList.add('noFade')
+        }
+    }
+}
 
 const handleElemTypes = (playerElemType, botElemType) => {
     let playerScoreNum = Number(playerScoreElem.textContent)

@@ -1,4 +1,4 @@
-@import url('http://fonts.cdnfonts.com/css/pokemon-solid');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 html, body {
     margin: 0 auto;
@@ -6,7 +6,7 @@ html, body {
     font-size: 10px;
     font-smooth: never;
     -webkit-font-smoothing: none;
-    font-family: "pokemon-font", monospace;
+    font-family: "Press Start 2P", monospace;
     font-size: 30px;
     background-color: rgb(228, 228, 228);
 }
@@ -23,6 +23,8 @@ img {
     height: 200px;
     aspect-ratio: auto 530 / 599;
     transition: transform .4s;
+    -webkit-transition: opacity 1s;
+    opacity: 1;
 }
 
 img:hover {
@@ -33,10 +35,19 @@ img:active {
     transform: translate(0%, 10%);
 }
 
+.fade {
+    opacity: 0.5;
+}
+
+.noFade {
+    opacity: 1;
+}
+
 .playerPokémon, .botPokémon {
     border: 5px solid #4568a8;
     border-radius: 10px;
-    margin: 5px;
+    margin: 10px;
+    padding: 20px;
 }
 
 .botPokémon {
@@ -53,6 +64,7 @@ img:active {
 
 .resultText {
     font-size: 25px;
+    margin: 10px;
 }
 
 button {
