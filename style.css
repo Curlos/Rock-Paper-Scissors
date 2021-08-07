@@ -11,6 +11,10 @@ html, body {
     background-color: rgb(228, 228, 228);
 }
 
+.pageHeader {
+    font-size: 40px;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -20,7 +24,7 @@ html, body {
 
 img {
     border-radius: 70px;
-    height: 200px;
+    height: 170px;
     aspect-ratio: auto 530 / 599;
     transition: transform .4s;
     -webkit-transition: opacity 1s;
@@ -64,15 +68,87 @@ img:active {
 
 .resultText {
     font-size: 25px;
-    margin: 10px;
+    margin: 15px;
 }
 
 button {
     padding: 8px;
-    border-radius: 6px;
+    border-radius: 7px;
+    font-size: 20px;
+    margin: 5px;
 }
 
 button:hover {
     text-decoration: underline;
     font-weight: bold;
+}
+
+@media only screen and (min-height: 1300px) {
+    .pageHeader {
+        font-size: 70px;
+    }
+    .playerPokémon, .botPokémon {
+        font-size: 50px;
+    }
+    img {
+      height: 250px;
+    }
+    .resultText {
+        font-size: 40px;
+    }
+    button {
+        font-size: 40px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .pageHeader {
+        font-size: 25px;
+    }
+    .playerPokémon, .botPokémon {
+        font-size: 15px;
+    }
+    img {
+      height: 100px;
+    }
+    .resultText {
+        font-size: 15px;
+    }
+}
+
+
+@media only screen and (max-width: 400px) {
+    .pageHeader {
+        font-size: 25px;
+    }
+    .playerPokémon, .botPokémon {
+        font-size: 15px;
+    }
+    img {
+      height: 90px;
+    }
+    .resultText {
+        font-size: 15px;
+    }
+    button {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .pageHeader {
+        font-size: 25px;
+    }
+    .playerPokémon, .botPokémon {
+        font-size: 10px;
+    }
+    img {
+      height: 70px;
+    }
+    .resultText {
+        font-size: 10px;
+    }
+    button {
+        font-size: 10px;
+    }
 }

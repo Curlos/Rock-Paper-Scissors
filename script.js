@@ -75,16 +75,16 @@ const handleElemTypes = (playerElemType, botElemType) => {
     if (botElemType == typeEffectiveness[playerElemType]) {
         playerScoreNum += 1
         playerScoreElem.textContent = String(playerScoreNum)
-        resultTextElem.textContent = `PLAYER used ${playerElemType} on BOT'S ${botElemType}. It was super effective!`
+        resultTextElem.textContent = `PLAYER1 used ${playerElemType} on PLAYER2'S ${botElemType}. It was super effective!`
         checkIfGameOver(playerScoreNum, botScoreNum)
         
     } else if (playerElemType == typeEffectiveness[botElemType]) {
         botScoreNum += 1
         botScoreElem.textContent = String(botScoreNum)
-        resultTextElem.textContent = `PLAYER used ${playerElemType} on BOT'S ${botElemType}. It was not very effective...`
+        resultTextElem.textContent = `PLAYER1 used ${playerElemType} on PLAYER2'S ${botElemType}. It was not very effective...`
         checkIfGameOver(playerScoreNum, botScoreNum)
     } else {
-        resultTextElem.textContent = `PLAYER used ${playerElemType} on BOT'S ${botElemType}. It was not very effective...`
+        resultTextElem.textContent = `PLAYER1 used ${playerElemType} on PLAYER2'S ${botElemType}. It was not very effective...`
     }
 }
 
@@ -128,7 +128,7 @@ const checkIfGameOver = (playerScoreNum, botScoreNum) => {
         alert('You win! You got ₽10000000 for winning.')
         endGame()
     } else if (botScoreNum >= 5) {
-        alert('BOT wins...BOT got ₽10000000 for winning.')
+        alert('PLAYER2 wins...PLAYER2 got ₽10000000 for winning.')
         endGame()
     }
 }
